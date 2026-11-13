@@ -23,12 +23,236 @@
         }
     </script>
     <link rel="stylesheet" href="style.css">
+    <style>
+
+/* =========================================
+   IT LABS – MONORI FERENC
+   Egyedi színpaletta
+========================================= */
+
+:root {
+    --background: #023047;
+    --background-brand: #264653;
+    --text-color: #DD9917;
+    --uri-color: #00caa6;
+    --bolder-color: #a6007f;
+
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+/* =========================================
+   ALAPBEÁLLÍTÁSOK
+========================================= */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+    background-color: var(--uri-color);
+    color: var(--background);
+}
+
+a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* =========================================
+   HEADER / NAVBAR
+========================================= */
+
+header {
+    background: rgba(2, 48, 71, 0.95);
+    border-bottom: 1px solid rgba(0, 202, 166, 0.3);
+    backdrop-filter: blur(12px);
+}
+
+header h1 {
+    color: var(--bolder-color);
+    transition: var(--transition);
+}
+
+header h1:hover {
+    color: var(--uri-color);
+}
+
+header nav a {
+    color: var(--text-color);
+}
+
+header nav a:hover {
+    color: var(--uri-color);
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+section:first-of-type {
+    background: linear-gradient(
+        180deg,
+        var(--background) 0%,
+        var(--background-brand) 100%
+    );
+}
+
+section:first-of-type h2 {
+    color: var(--text-color);
+}
+
+section:first-of-type h2 span:last-child {
+    color: var(--bolder-color);
+}
+
+section:first-of-type p {
+    color: rgba(221, 153, 23, 0.85);
+}
+
+/* Hero gomb */
+
+section:first-of-type a {
+    background-color: var(--uri-color);
+    color: var(--background);
+    box-shadow: 0 8px 25px rgba(0, 202, 166, 0.25);
+    border: 1px solid var(--uri-color);
+}
+
+section:first-of-type a:hover {
+    background-color: var(--bolder-color);
+    border-color: var(--bolder-color);
+    color: var(--white);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(166, 0, 127, 0.35);
+}
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+#about {
+    background-color: var(--background);
+}
+
+#about h2 {
+    color: var(--bolder-color);
+}
+
+#about p {
+    color: rgba(221, 153, 23, 0.85);
+}
+
+/* =========================================
+   PROJECTS SECTION
+========================================= */
+
+#projects {
+    background-color: var(--background-brand);
+}
+
+#projects h2 {
+    color: var(--bolder-color);
+}
+
+/* Projektkártyák */
+
+#projects .grid > div {
+    background-color: var(--background);
+    border: 1px solid rgba(0, 202, 166, 0.4);
+    border-radius: 24px;
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(2, 48, 71, 0.5);
+}
+
+#projects .grid > div:hover {
+    border-color: var(--bolder-color);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(166, 0, 127, 0.2);
+}
+
+#projects h3 {
+    color: var(--uri-color);
+}
+
+#projects p {
+    color: rgba(221, 153, 23, 0.85);
+}
+
+/* =========================================
+   CONTACT SECTION
+========================================= */
+
+#contact {
+    background-color: var(--background);
+}
+
+#contact h2 {
+    color: var(--bolder-color);
+}
+
+#contact p {
+    color: rgba(221, 153, 23, 0.85);
+}
+
+#contact span,
+#contact a {
+    color: var(--uri-color);
+}
+
+#contact a:hover {
+    color: var(--bolder-color);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background-color: var(--background-brand);
+    border-top: 1px solid rgba(0, 202, 166, 0.2);
+    color: rgba(221, 153, 23, 0.6);
+}
+
+/* =========================================
+   RESZPONZÍV KIEGÉSZÍTÉSEK
+========================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    section:first-of-type h2 {
+        font-size: 2.5rem;
+    }
+
+    section:first-of-type p {
+        font-size: 1rem;
+    }
+
+    #projects .grid > div {
+        padding: 1.5rem;
+    }
+
+}
+
+    </style>
 </head>
 
 <body class="bg-background text-text-color font-sans antialiased leading-relaxed selection:bg-uri-color selection:text-background">
 
     <!-- Header -->
-    <header class="fixed w-full bg-background/95 backdrop-blur-md border-b border-uri-color/30 z-50">
+    <header class="fixed w-full bg-background/95 backdrop-blur-md border-b border-uri-color/30 z-50 uppercase">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
             <h1 class="text-xl md:text-2xl font-semibold tracking-wide text-bolder-color">
                 Monori Ferenc
@@ -37,6 +261,7 @@
                 <a href="#about" class="text-text-color hover:text-uri-color transition">Rólam</a>
                 <a href="#projects" class="text-text-color hover:text-uri-color transition">Projektek</a>
                 <a href="#contact" class="text-text-color hover:text-uri-color transition">Kapcsolat</a>
+                <a href="/htb" target="_blank" rel="noopener noreferrer">HackTheBox labs</a>
             </nav>
         </div>
     </header>
@@ -45,8 +270,8 @@
     <section class="min-h-screen flex items-center justify-center text-center px-6 bg-gradient-to-b from-background to-background-brand">
         <div class="max-w-3xl">
             <h2 class="text-4xl md:text-6xl font-light leading-tight mb-6">
-                <span class="text-text-color">IT Labs</span>
-                <span class="block text-bolder-color font-semibold">Monori Ferenc informatika laborja</span>
+                <span class="text-text-color uppercase">IT Labs</span>
+                <span class="block text-bolder-color font-semibold uppercase">Monori Ferenc informatika laborja</span>
             </h2>
             <p class="text-lg md:text-xl text-text-color/80 mb-10">
                 Monori Ferenc több éves tapasztalattal rendelkező webfejlesztő, aki a legújabb
